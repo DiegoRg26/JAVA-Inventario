@@ -2,6 +2,7 @@ package com.mycompany.inventario2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class DataBaseProductos {
@@ -50,28 +51,5 @@ public class DataBaseProductos {
     
     public void borrar(Producto p){
         this.listaProductos.remove(p.getId());
-    }
-    
-    public String geninforme(){
-        List<Producto> ListaMayores = getmayor();
-        return ListaMayores.get(0).getProducto()+ " "+ListaMayores.get(1).getProducto()+" "+ListaMayores.get(2).getProducto();
-    }
-    
-    private List<Producto> getmayor(){
-        List<Producto> lista = new ArrayList<>(this.listaProductos.values());
-        List<Producto> listam = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            Producto p = new Producto();
-            for (Producto pTemp : lista) {
-                if(pTemp.getPrecio() > p.getPrecio()){
-                    p = pTemp;
-                }
-                
-            }
-            listam.add(p);
-            lista.remove(p);
-        }
-        return listam;
-    }
-    
+    }  
 }
